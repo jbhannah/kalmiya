@@ -101,6 +101,7 @@ GEM
       railties (>= 5.0.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
+    ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.8.11)
@@ -115,6 +116,7 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.0.0)
       railties (>= 6.0.0)
+    jwt (2.3.0)
     kramdown (2.3.1)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -193,6 +195,8 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    rbnacl (7.1.1)
+      ffi
     redis (4.5.1)
     regexp_parser (2.2.0)
     reline (0.3.1)
@@ -287,11 +291,13 @@ DEPENDENCIES
   faker
   jbuilder
   jsbundling-rails
+  jwt
   pg (~> 1.1)
   propshaft
   puma (~> 5.0)
   rack-mini-profiler
   rails (~> 7.0.1)
+  rbnacl
   redis (~> 4.0)
   reek!
   rspec-rails
