@@ -2,6 +2,8 @@
 
 # User model
 class User < ApplicationRecord
+  include ProtectedAttributes
+
   has_secure_token :confirmation_token
   has_secure_password
 
@@ -10,6 +12,8 @@ class User < ApplicationRecord
   before_validation :downcase_email
 
   validates :email, presence: true, uniqueness: true
+
+  protect_attributes :confirmation_token, :password, :password_confirmation, :password_digest
 
   private
 
