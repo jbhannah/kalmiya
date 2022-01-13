@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Base ActiveJob job
 class ApplicationJob < ActiveJob::Base
   # Automatically retry jobs that encountered a deadlock
