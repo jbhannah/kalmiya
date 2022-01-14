@@ -1,0 +1,8 @@
+<%= form_with model: Session.new do |f| %>
+  <%= fields_for :user, User.new do |user_fields| %>
+    <%= user_fields.email_field :email %>
+    <%= user_fields.password_field :password %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

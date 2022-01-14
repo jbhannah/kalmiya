@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # User model
+# :reek:MissingSafeMethod { exclude: [authenticate!] }
 class User < ApplicationRecord
   include ProtectedAttributes
 
@@ -14,6 +15,10 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   protect_attributes :confirmation_token, :password, :password_confirmation, :password_digest
+
+  def authenticate!(password)
+    authenticate(password) || raise
+  end
 
   private
 

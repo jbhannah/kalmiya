@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resource :user
   resolve('User') { [:user] }
 
+  resources :sessions, except: %i[show edit update]
+
   # Defines the root path route ("/")
   root 'home#index'
 end
