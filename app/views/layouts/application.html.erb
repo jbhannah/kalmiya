@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= logged_in? ? current_user.email : link_to(new_session_path) %>
     <%= yield %>
   </body>
 </html>
