@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
-  after_action :refresh_session, if: -> { logged_in? }
+  after_action :refresh_session, if: :logged_in?
 
   protected
 
@@ -16,9 +16,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= current_session.user
   end
 
-  # :reek:NilCheck
   def logged_in?
-    @logged_in ||= !jwt.nil?
+    session.key?(:jwt)
   end
 
   private

@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= logged_in? ? current_user.email : link_to(new_session_path) %>
+    <%= logged_in? ? link_to("Log out", logout_sessions_path, data: { "turbo-method": "delete" }) : link_to("Log in", new_session_path) %>
     <%= yield %>
   </body>
 </html>

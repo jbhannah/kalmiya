@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resource :user
   resolve('User') { [:user] }
 
-  resources :sessions, except: %i[show edit update]
+  resources :sessions, only: %i[new create index destroy] do
+    delete '', action: :destroy, as: 'logout', on: :collection
+  end
 
   # Defines the root path route ("/")
   root 'home#index'
