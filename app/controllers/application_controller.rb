@@ -34,5 +34,11 @@ class ApplicationController < ActionController::Base
     Session.from_jwt(jwt).tap do |jwt_session|
       jwt_session.update!(last_accessed_from: request.remote_ip, last_accessed_at: Time.zone.now)
     end
+  rescue ActiveRecord::RecordNotFound,
+         JWT::DecodeError,
+         JWT::ExpiredSignature,
+         JWT::ImmatureSignature,
+         JWT::VerificationError
+    raise HTTP::Errors::UnauthorizedError
   end
 end
