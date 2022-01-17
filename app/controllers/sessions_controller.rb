@@ -21,11 +21,11 @@ class SessionsController < ApplicationController
   def destroy
     if destroy_session_params.key?(:id)
       current_user.sessions.find(destroy_session_params[:id]).destroy!
-      redirect_to sessions_path
+      redirect_to sessions_path, status: :see_other
     else
       current_session.destroy!
       reset_session
-      redirect_to root_url
+      redirect_to root_url, status: :see_other
     end
   end
 
