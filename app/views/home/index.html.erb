@@ -1,2 +1,3 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= turbo_frame_tag "tasks", src: tasks_path, loading: "lazy" do %>
+  <div></div>
+<% end %>
