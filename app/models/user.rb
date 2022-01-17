@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :sessions, dependent: :delete_all
+  has_many :tasks, dependent: :delete_all
 
   before_validation :downcase_email
 
