@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resource :user
   resolve('User') { [:user] }
 
+  resources :tasks
+
   resources :sessions, only: %i[new create index destroy] do
     delete '', action: :destroy, as: 'logout', on: :collection
   end
