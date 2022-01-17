@@ -4,9 +4,11 @@ require 'rails_helper'
 
 RSpec.describe 'Home', type: :request do
   describe 'GET /' do
-    it 'returns http success' do
-      get '/'
-      expect(response).to have_http_status(:success)
+    context 'without a current session' do
+      it 'redirects to the login page' do
+        get '/'
+        expect(response).to have_http_status(:redirect)
+      end
     end
   end
 end
