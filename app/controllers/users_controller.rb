@@ -2,6 +2,8 @@
 
 # User account management controller
 class UsersController < ApplicationController
+  skip_before_action :current_user, only: %i[new create]
+
   def new
     @user = User.new
   end
