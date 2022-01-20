@@ -15,10 +15,7 @@ class TasksController < ApplicationController
   def create
     task = current_user.tasks.create!(task_params)
 
-    respond_to do |format|
-      format.html { redirect_to task }
-      format.turbo_stream { redirect_to new_task_path }
-    end
+    redirect_by_format html: task, turbo_stream: new_task_path
   end
 
   def show; end

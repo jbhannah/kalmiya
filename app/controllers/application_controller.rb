@@ -23,6 +23,13 @@ class ApplicationController < ActionController::Base
     session.key?(:jwt)
   end
 
+  def redirect_by_format(html:, turbo_stream:)
+    respond_to do |format|
+      format.html { redirect_to html }
+      format.turbo_stream { redirect_to turbo_stream }
+    end
+  end
+
   private
 
   def jwt
