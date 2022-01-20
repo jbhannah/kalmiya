@@ -4,7 +4,7 @@
 class SessionsController < ApplicationController
   skip_before_action :current_user, only: %i[new create]
 
-  rescue_from UserAuthenticationError, with: :redirect_to_new
+  rescue_from Kalmiya::Errors::UserAuthenticationError, with: :redirect_to_new
 
   def index; end
 

@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-# Represents a user authentication failure, due to either not finding a user for
-# the given email address, or a credential matching failure. The underlying
-# cause is not exposed to the user, to minimze risk of password-reuse attacks by
-# obscuring whether an account exists for the given email address.
-class UserAuthenticationError < StandardError; end
-
 # User model
 # :reek:MissingSafeMethod { exclude: [authenticate!, find_and_authenticate_by!] }
 class User < ApplicationRecord
@@ -27,12 +21,12 @@ class User < ApplicationRecord
     def find_and_authenticate_by!(email:, password:)
       find_by!(email:).authenticate!(password)
     rescue ActiveRecord::RecordNotFound
-      raise UserAuthenticationError
+      raise Kalmiya::Errors::UserAuthenticationError
     end
   end
 
   def authenticate!(password)
-    authenticate(password) or raise UserAuthenticationError
+    authenticate(password) or raise Kalmiya::Errors::UserAuthenticationError
   end
 
   private
