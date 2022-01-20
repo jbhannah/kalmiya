@@ -3,7 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Tasks', type: :request do
-  describe 'GET /index' do
-    pending "add some examples (or delete) #{__FILE__}"
+  describe 'GET /' do
+    subject { response }
+
+    before { get '/tasks' }
+
+    context 'without a current session' do
+      it { is_expected.to have_http_status(:redirect) }
+    end
   end
 end

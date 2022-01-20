@@ -2,8 +2,11 @@
 
 FactoryBot.define do
   factory :task do
-    user { nil }
-    name { 'MyString' }
-    completed_at { '2022-01-16 17:43:38' }
+    user
+    name { Faker::String.random }
+
+    factory :completed_task do
+      completed_at { Faker::Time.backward }
+    end
   end
 end
