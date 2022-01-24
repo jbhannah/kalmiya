@@ -59,10 +59,7 @@ group :development, :test do
 
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'reek', github: 'troessner/reek'
   gem 'rspec-rails'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
 end
 
 group :development do
@@ -75,5 +72,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+  gem 'reek', github: 'troessner/reek'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'solargraph'
 end
