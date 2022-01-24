@@ -1,6 +1,17 @@
+key = Rails.root.join("config", "master.key")
+
 namespace :docker do
-  task build: :environment do
-    key = Rails.root.join("config", "master.key")
-    `docker build -t kalmiya:latest --secret id=masterkey,src=#{key} .`
+  namespace :build do
+    task production: :environment do
+      `docker build -t kalmiya:latest --secret id=masterkey,src=#{key} .`
+    end
+
+    task test: :environment do
+      `docker build -t kalmiya:latest-test --build-arg RAILS_ENV=test --secret id=masterkey,src=#{key} .`
+    end
+
+    task :all => ["production", "test"]
   end
+
+  task :build => ["build:production"]
 end
