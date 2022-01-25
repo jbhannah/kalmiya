@@ -1,4 +1,6 @@
-key = Rails.root.join("config", "master.key")
+# frozen_string_literal: true
+
+key = Rails.root.join('config/master.key')
 
 namespace :docker do
   namespace :build do
@@ -10,8 +12,8 @@ namespace :docker do
       `docker build -t kalmiya:latest-test --build-arg RAILS_ENV=test --secret id=masterkey,src=#{key} .`
     end
 
-    task :all => ["production", "test"]
+    task all: %w[production test]
   end
 
-  task :build => ["build:production"]
+  task build: ['build:production']
 end
