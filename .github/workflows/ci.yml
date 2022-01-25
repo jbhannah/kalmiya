@@ -48,7 +48,6 @@ jobs:
       postgres:
         image: postgres:14-alpine
         env:
-          POSTGRES_DB: kalmiya_test
           POSTGRES_PASSWORD: kalmiya
         options: >-
           --health-cmd pg_isready
