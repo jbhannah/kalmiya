@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: 14-alpine
+        image: postgres:14-alpine
         env:
           POSTGRES_DB: kalmiya_test
           POSTGRES_PASSWORD: kalmiya
@@ -59,7 +59,7 @@ jobs:
         ports:
           - 5432:5432
       redis:
-        image: alpine
+        image: redis:alpine
         ports:
           - 6379:6379
     steps:
