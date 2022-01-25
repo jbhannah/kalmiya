@@ -44,11 +44,17 @@ jobs:
       - reek
       - rubocop
     runs-on: ubuntu-latest
+    env:
+      PGHOST: localhost
+      PGUSER: kalmiya
+      PGPASSWORD: kalmiya
     services:
       postgres:
         image: postgres:14-alpine
         env:
+          POSTGRES_DB: kalmiya_test
           POSTGRES_PASSWORD: kalmiya
+          POSTGRES_USER: kalmiya
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
