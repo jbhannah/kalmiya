@@ -13,9 +13,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = current_user.tasks.create!(task_params)
-
-    redirect_by_format html: task, turbo_stream: new_task_path
+    current_user.tasks.create!(task_params)
+    head :created
   end
 
   def show; end
@@ -29,7 +28,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy!
-    redirect_to tasks_path, status: :see_other
+    head :no_content
   end
 
   private
