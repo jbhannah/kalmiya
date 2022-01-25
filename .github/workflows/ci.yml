@@ -9,11 +9,9 @@ jobs:
   bundle:
     runs-on: ubuntu-latest
     steps:
-      - &checkout
-        name: Checkout code
+      - name: Checkout code
         uses: actions/checkout@v2
-      - &ruby
-        name: Set up Ruby
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
@@ -21,16 +19,20 @@ jobs:
     needs: bundle
     runs-on: ubuntu-latest
     steps:
-      - *checkout
-      - *ruby
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
       - name: Run Reek
         run: bundle exec reek
   rubocop:
     needs: bundle
     runs-on: ubuntu-latest
     steps:
-      - *checkout
-      - *ruby
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
       - name: Run Rubocop
         run: bundle exec rubocop
   rspec:
@@ -39,7 +41,9 @@ jobs:
       - rubocop
     runs-on: ubuntu-latest
     steps:
-      - *checkout
-      - *ruby
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
       - name: Run RSpec
         run: bin/rails spec
