@@ -44,6 +44,24 @@ jobs:
       - reek
       - rubocop
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: 14-alpine
+        env:
+          POSTGRES_DB: kalmiya_test
+          POSTGRES_PASSWORD: kalmiya
+          POSTGRES_USER: kalmiya
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+      redis:
+        image: alpine
+        ports:
+          - 6379:6379
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -51,5 +69,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Set up database
+        run: bin/rails db:setup
       - name: Run RSpec
         run: bin/rails spec
