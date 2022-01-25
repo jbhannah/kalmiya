@@ -50,7 +50,6 @@ jobs:
         env:
           POSTGRES_DB: kalmiya_test
           POSTGRES_PASSWORD: kalmiya
-          POSTGRES_USER: kalmiya
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
