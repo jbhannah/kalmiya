@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/troessner/reek.git
-  revision: 66727fb46dc9d83d006d178cd3dcb30e3890b12f
+  revision: fd456e09bac811e2f9e7bd9ee0ce9d4b2d94401a
   specs:
-    reek (6.0.6)
+    reek (6.1.0)
       kwalify (~> 0.7.0)
       parser (~> 3.1.0)
       rainbow (>= 2.0, < 4.0)
