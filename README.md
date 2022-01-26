@@ -1,24 +1,29 @@
-# README
+# Kalmiya
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Rails CI](https://github.com/jbhannah/kalmiya/actions/workflows/ci.yml/badge.svg)](https://github.com/jbhannah/kalmiya/actions/workflows/ci.yml)
 
-Things you may want to cover:
+Task manager and personal assistant.
 
-* Ruby version
+## Requirements
 
-* System dependencies
+- Ruby 3
+- Node 16
+- Yarn
 
-* Configuration
+## Development
 
-* Database creation
+```bash
+bin/dev
+```
 
-* Database initialization
+## Testing
 
-* How to run the test suite
+```bash
+bin/rails spec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Building for deployment
 
-* Deployment instructions
-
-* ...
+```bash
+bin/rails docker:build
+```
