@@ -1,6 +1,7 @@
 # Kalmiya
 
 [![Rails CI](https://github.com/jbhannah/kalmiya/actions/workflows/ci.yml/badge.svg)](https://github.com/jbhannah/kalmiya/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/jbhannah/kalmiya/actions/workflows/codeql.yml/badge.svg)](https://github.com/jbhannah/kalmiya/actions/workflows/codeql.yml)
 
 Task manager and personal assistant.
 

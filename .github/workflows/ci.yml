@@ -63,8 +63,6 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - assets
-      - reek
-      - rubocop
     env:
       PGHOST: localhost
       PGUSER: kalmiya
