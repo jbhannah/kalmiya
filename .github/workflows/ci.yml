@@ -36,11 +36,11 @@ jobs:
         with:
           node-version-file: .node-version
           cache: yarn
-      - run: bin/rails assets:precompile
       - uses: actions/cache@v2
         with:
           key: ${{ hashFiles('app/assets/**') }}-${{ hashFiles('app/javascript/**') }}
           path: public/assets
+      - run: bin/rails assets:precompile
   reek:
     runs-on: ubuntu-latest
     needs: bundle
