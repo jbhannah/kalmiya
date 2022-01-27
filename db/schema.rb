@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_014338) do
+ActiveRecord::Schema.define(version: 2022_01_27_183843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2022_01_17_014338) do
     t.datetime "completed_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "completed_at"], name: "index_completed_tasks_by_user_id", where: "(completed_at IS NOT NULL)"
+    t.index ["user_id", "completed_at"], name: "index_incomplete_tasks_by_user_id", where: "(completed_at IS NULL)"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
