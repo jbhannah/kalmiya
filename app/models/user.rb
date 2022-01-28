@@ -3,6 +3,7 @@
 # User model
 # :reek:MissingSafeMethod { exclude: [authenticate!, find_and_authenticate_by!] }
 class User < ApplicationRecord
+  include NullByteCleaner
   include ProtectedAttributes
 
   has_secure_token :confirmation_token
@@ -14,6 +15,8 @@ class User < ApplicationRecord
   before_validation :downcase_email
 
   validates :email, presence: true, uniqueness: true
+
+  clean_null_bytes_from :email, :password, :password_confirmation
 
   protect_attributes :confirmation_token, :password, :password_confirmation, :password_digest
 
