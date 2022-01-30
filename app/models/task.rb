@@ -21,4 +21,8 @@ class Task < ApplicationRecord
   def completed?
     !!completed_at
   end
+
+  def completed=(value)
+    self.completed_at = !!value ? (completed_at or Time.zone.now) : nil
+  end
 end

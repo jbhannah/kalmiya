@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import ResetFormController from "./reset_form_controller.js"
 application.register("reset-form", ResetFormController)
+
+import TaskController from "./task_controller.js"
+application.register("task", TaskController)
