@@ -1,8 +1,8 @@
-import { Controller } from "@hotwired/stimulus";
+import { Controller } from "../lib/controller";
 import { headers } from "../lib/fetch";
 
 // Connects to data-controller="task"
-export default class extends Controller {
+export default class extends Controller<HTMLElement> {
   async completed() {
     this.#checkbox().disabled = true;
 
@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
   #checkbox() {
-    return this.element.querySelector("input[type=checkbox]");
+    return this.element.querySelector<HTMLInputElement>("input[type=checkbox]");
   }
 
   #taskID() {
