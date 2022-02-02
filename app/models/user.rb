@@ -32,6 +32,10 @@ class User < ApplicationRecord
     authenticate(password) or raise Kalmiya::Errors::UserAuthenticationError
   end
 
+  def use_time_zone(&block)
+    Time.use_zone(time_zone, &block)
+  end
+
   private
 
   def downcase_email

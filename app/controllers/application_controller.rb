@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   before_action :current_user
-  after_action :refresh_session, if: :logged_in?
+  around_action :use_time_zone,   if: :logged_in?
+  after_action  :refresh_session, if: :logged_in?
 
   rescue_from HTTP::Errors::UnauthorizedError, with: :rescue_http_unauthorized
 
@@ -52,5 +53,9 @@ class ApplicationController < ActionController::Base
          JWT::ImmatureSignature,
          JWT::VerificationError
     raise HTTP::Errors::UnauthorizedError
+  end
+
+  def use_time_zone(&block)
+    current_user.use_time_zone(&block)
   end
 end

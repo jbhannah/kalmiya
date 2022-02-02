@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_204222) do
+ActiveRecord::Schema.define(version: 2022_02_02_215849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2022_02_02_204222) do
     t.datetime "confirmed_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "time_zone", default: "UTC"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, where: "(confirmation_token IS NOT NULL)"
     t.index ["confirmed_at"], name: "index_users_on_confirmed_at", where: "(confirmed_at IS NOT NULL)"
     t.index ["email"], name: "index_users_on_email", unique: true
