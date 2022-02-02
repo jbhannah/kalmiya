@@ -29,6 +29,6 @@ class Task < ApplicationRecord
   end
 
   def overdue?
-    (due_on &.< Time.zone.today) and not completed?
+    (due_on&.< Time.zone.today) and !completed?
   end
 end

@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
     raise HTTP::Errors::UnauthorizedError
   end
 
-  def use_time_zone(&block)
-    current_user.use_time_zone(&block)
+  def use_time_zone(&)
+    current_user.use_time_zone(&)
   end
 end

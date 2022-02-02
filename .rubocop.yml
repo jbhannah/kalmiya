@@ -28,6 +28,9 @@ Rails/SkipsModelValidations:
   Exclude:
     - spec/factories/**/*.rb
 
+RSpec/MultipleMemoizedHelpers:
+  Max: 8
+
 Style/Documentation:
   Exclude:
     - db/migrate/*.rb
