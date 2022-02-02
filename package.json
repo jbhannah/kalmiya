@@ -5,7 +5,7 @@
     "@hotwired/turbo-rails": "^7.1.1",
     "autoprefixer": "^10.4.2",
     "esbuild": "^0.14.15",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.6",
     "postcss-cli": "^9.1.0",
     "postcss-nesting": "^10.1.2"
   },
