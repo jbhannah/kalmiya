@@ -2,13 +2,26 @@
 
 require 'rails_helper'
 
+RSpec.shared_examples 'a not-overdue task' do |due_on|
+  let(:due_on) { due_on }
+
+  it { is_expected.not_to be_overdue }
+end
+
+RSpec.shared_examples 'an overdue task' do |due_on|
+  let(:due_on) { due_on }
+
+  it { is_expected.to be_overdue }
+end
+
 RSpec.describe Task, type: :model do
   subject(:task) { incomplete_task }
 
-  let!(:completed_task)  { create(:completed_task) }
-  let!(:incomplete_task) { create(:task)           }
-  let!(:due_task)        { create(:task, :due)     }
-  let!(:overdue_task)    { create(:task, :overdue) }
+  let!(:completed_task)  { create(:completed_task)   }
+  let!(:incomplete_task) { create(:task)             }
+  let!(:due_task)        { create(:task, :due)       }
+  let!(:due_today_task)  { create(:task, :due_today) }
+  let!(:overdue_task)    { create(:task, :overdue)   }
 
   it { is_expected.to be_valid }
 
@@ -32,6 +45,7 @@ RSpec.describe Task, type: :model do
 
       it { is_expected.to     include overdue_task    }
       it { is_expected.not_to include due_task        }
+      it { is_expected.not_to include due_today_task  }
       it { is_expected.not_to include completed_task  }
       it { is_expected.not_to include incomplete_task }
     end
@@ -51,8 +65,7 @@ RSpec.describe Task, type: :model do
     end
 
     context 'when completed_at is not null' do
-      subject(:task) { completed_task }
-
+      let(:task) { completed_task }
       let(:time) { Faker::Time.between(from: task.completed_at + 1.second, to: Time.zone.now) }
 
       it { is_expected.to     be_completed                                              }
@@ -81,57 +94,19 @@ RSpec.describe Task, type: :model do
     before { task.due_on = due_on }
 
     context 'when incomplete' do
-      context 'when due_on is nil' do
-        let(:due_on) { nil }
-
-        it { is_expected.not_to be_overdue}
-      end
-
-      context 'when due_on is after today' do
-        let(:due_on) { Faker::Date.forward }
-
-        it { is_expected.not_to be_overdue }
-      end
-
-      context 'when due_on is today' do
-        let(:due_on) { Time.zone.today }
-
-        it { is_expected.not_to be_overdue }
-      end
-
-      context 'when due_on is before today' do
-        let(:due_on) { Faker::Date.backward }
-
-        it { is_expected.to be_overdue }
-      end
+      it_behaves_like 'a not-overdue task', nil
+      it_behaves_like 'a not-overdue task', Faker::Date.forward
+      it_behaves_like 'a not-overdue task', Time.zone.today
+      it_behaves_like 'an overdue task', Faker::Date.backward
     end
 
     context 'when completed' do
       let(:task) { completed_task }
 
-      context 'when due_on is nil' do
-        let(:due_on) { nil }
-
-        it { is_expected.not_to be_overdue}
-      end
-
-      context 'when due_on is after today' do
-        let(:due_on) { Faker::Date.forward }
-
-        it { is_expected.not_to be_overdue }
-      end
-
-      context 'when due_on is today' do
-        let(:due_on) { Time.zone.today }
-
-        it { is_expected.not_to be_overdue }
-      end
-
-      context 'when due_on is before today' do
-        let(:due_on) { Faker::Date.backward }
-
-        it { is_expected.not_to be_overdue }
-      end
+      it_behaves_like 'a not-overdue task', nil
+      it_behaves_like 'a not-overdue task', Faker::Date.forward
+      it_behaves_like 'a not-overdue task', Time.zone.today
+      it_behaves_like 'a not-overdue task', Faker::Date.backward
     end
   end
 end

@@ -17,6 +17,10 @@ FactoryBot.define do
       due_on { Faker::Date.forward }
     end
 
+    trait :due_today do
+      due_on { user.use_time_zone { Time.zone.today } }
+    end
+
     trait :overdue do
       due_on { Faker::Date.backward }
     end
