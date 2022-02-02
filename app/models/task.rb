@@ -10,6 +10,8 @@ class Task < ApplicationRecord
   scope :incomplete, -> { where(completed_at: nil) }
   scope :completed,  -> { inverse_of(:incomplete)  }
 
+  scope :overdue, -> { where(due_on: ...Time.zone.today) }
+
   broadcasts_to ->(task) { task.user }
 
   clean_null_bytes_from :name
