@@ -72,4 +72,30 @@ RSpec.describe Task, type: :model do
       it { is_expected.to be_completed }
     end
   end
+
+  describe '#overdue?' do
+    around do |example|
+      task.user.use_time_zone(&example)
+    end
+
+    before { task.due_on = due_on }
+
+    context 'when due_on is after today' do
+      let(:due_on) { Faker::Date.forward }
+
+      it { is_expected.not_to be_overdue }
+    end
+
+    context 'when due_on is today' do
+      let(:due_on) { Time.zone.today }
+
+      it { is_expected.not_to be_overdue }
+    end
+
+    context 'when due_on is before today' do
+      let(:due_on) { Faker::Date.backward }
+
+      it { is_expected.to be_overdue }
+    end
+  end
 end

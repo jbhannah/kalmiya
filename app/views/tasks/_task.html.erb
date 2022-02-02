@@ -1,5 +1,5 @@
 <%= turbo_frame_tag task do %>
-  <div data-controller="task" data-task-id="<%= task.id %>">
+  <div data-controller="task" data-task-id="<%= task.id %>" class="<%= token_list(:task, { overdue: task.overdue? }) %>">
     <%= check_box_tag "completed-#{dom_id(task)}", 1, task.completed?, data: { action: "change->task#completed" } %>
     <%= task.name %>
     <%= link_to "Edit", edit_task_path(task) %>

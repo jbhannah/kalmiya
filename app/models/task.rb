@@ -27,4 +27,8 @@ class Task < ApplicationRecord
   def completed=(value)
     self.completed_at = !!value ? (completed_at or Time.zone.now) : nil
   end
+
+  def overdue?
+    (due_on &.< Time.zone.today) and not completed?
+  end
 end
