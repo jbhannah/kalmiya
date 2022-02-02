@@ -81,6 +81,12 @@ RSpec.describe Task, type: :model do
     before { task.due_on = due_on }
 
     context 'when incomplete' do
+      context 'when due_on is nil' do
+        let(:due_on) { nil }
+
+        it { is_expected.not_to be_overdue}
+      end
+
       context 'when due_on is after today' do
         let(:due_on) { Faker::Date.forward }
 
@@ -102,6 +108,12 @@ RSpec.describe Task, type: :model do
 
     context 'when completed' do
       let(:task) { completed_task }
+
+      context 'when due_on is nil' do
+        let(:due_on) { nil }
+
+        it { is_expected.not_to be_overdue}
+      end
 
       context 'when due_on is after today' do
         let(:due_on) { Faker::Date.forward }
