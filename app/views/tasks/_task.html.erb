@@ -2,6 +2,7 @@
   <div data-controller="task" data-task-id="<%= task.id %>" class="<%= token_list(:task, { overdue: task.overdue? }) %>">
     <%= check_box_tag "completed-#{dom_id(task)}", 1, task.completed?, data: { action: "change->task#completed" } %>
     <%= task.name %>
+    <%= task.due_on %>
     <%= link_to "Edit", edit_task_path(task) %>
     <%= link_to "Delete", task_path(task), data: { "turbo-method": "delete" } %>
   </div>

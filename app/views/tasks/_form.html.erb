@@ -1,6 +1,7 @@
 <%= turbo_frame_tag @task do %>
   <%= form_with model: @task, data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
     <%= f.text_field :name %>
+    <%= f.date_field :due_on %>
 
     <%= f.submit %>
   <% end %>
