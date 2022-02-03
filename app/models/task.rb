@@ -7,6 +7,8 @@ class Task < ApplicationRecord
 
   belongs_to :user
 
+  default_scope -> { order(created_at: :asc) }
+
   scope :incomplete, -> { where(completed_at: nil) }
   scope :completed,  -> { inverse_of(:incomplete)  }
 
