@@ -199,7 +199,7 @@ GEM
     rake (13.0.6)
     rbnacl (7.1.1)
       ffi
-    redis (4.5.1)
+    redis (4.6.0)
     regexp_parser (2.2.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -301,7 +301,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.0.1)
   rbnacl
-  redis (~> 4.0)
+  redis (~> 4.6)
   reek!
   rspec-rails
   rubocop-rails
