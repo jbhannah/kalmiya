@@ -72,7 +72,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  gem 'reek', github: 'troessner/reek'
+  gem 'reek'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'solargraph'
