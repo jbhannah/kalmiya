@@ -4,6 +4,8 @@ require 'base64'
 
 # Session model
 class Session < ApplicationRecord
+  include StringifiedAttributes
+
   JWT_ALGORITHM = 'ED25519'
   JWT_DECODE_OPTS = {
     algorithm: JWT_ALGORITHM,
@@ -15,14 +17,14 @@ class Session < ApplicationRecord
   )
   JWT_PUBLIC_KEY = JWT_PRIVATE_KEY.verify_key
 
-  STRINGIFY_ATTRIBUTES_FOR_SERIALIZATION = %w[created_from last_accessed_from].freeze
-
   belongs_to :user
 
   before_save :extend_life
 
-  scope :active, -> { where(expires_at: Time.zone.now..) }
-  scope :expired, -> { inverse_of(:active) }
+  scope :active,  -> { where(expires_at: Time.zone.now..) }
+  scope :expired, -> { inverse_of(:active)                }
+
+  stringify_attributes_for_serialization :created_from, :last_accessed_from
 
   class << self
     def from_jwt(jwt)
@@ -53,13 +55,5 @@ class Session < ApplicationRecord
 
   def iat
     @iat ||= created_at.to_i
-  end
-
-  def read_attribute_for_serialization(key)
-    if STRINGIFY_ATTRIBUTES_FOR_SERIALIZATION.include?(key)
-      send(key).to_s
-    else
-      super
-    end
   end
 end
