@@ -29,7 +29,7 @@ class NullByteCleaned
 end
 
 RSpec.describe NullByteCleaner do
-  subject(:model) { NullByteCleaned.new name: dirty_name, body: dirty_name, clean: clean }
+  subject(:model) { NullByteCleaned.new name: dirty_name, body: dirty_name, clean: }
 
   let(:clean_name) { Faker::Name.name }
   let(:dirty_name) { clean_name.clone.insert(clean_name.length / 2, "\u0000") }
