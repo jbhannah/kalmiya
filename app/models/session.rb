@@ -38,7 +38,7 @@ class Session < ApplicationRecord
       sub: user_id,
       exp: expires_at.to_i,
       nbf: iat,
-      iat: iat,
+      iat:,
       jti: id
     }
   end
