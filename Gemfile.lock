@@ -75,6 +75,7 @@ GEM
       msgpack (~> 1.2)
     builder (3.2.4)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     crass (1.0.6)
     cssbundling-rails (1.1.1)
       railties (>= 6.0.0)
@@ -189,7 +190,10 @@ GEM
     rake (13.0.6)
     rbnacl (7.1.1)
       ffi
-    redis (4.8.0)
+    redis (5.0.1)
+      redis-client (~> 0.7)
+    redis-client (0.7.1)
+      connection_pool
     reek (6.1.1)
       kwalify (~> 0.7.0)
       parser (~> 3.1.0)
@@ -297,7 +301,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.0.3)
   rbnacl
-  redis (~> 4.8)
+  redis (~> 5.0)
   reek
   rspec-rails
   rubocop-rails
