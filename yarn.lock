@@ -43,20 +43,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hotwired/turbo-rails@npm:^7.2.2":
-  version: 7.2.2
-  resolution: "@hotwired/turbo-rails@npm:7.2.2"
+"@hotwired/turbo-rails@npm:^7.2.4":
+  version: 7.2.4
+  resolution: "@hotwired/turbo-rails@npm:7.2.4"
   dependencies:
-    "@hotwired/turbo": ^7.2.2
+    "@hotwired/turbo": ^7.2.4
     "@rails/actioncable": ^7.0
-  checksum: ee71f2a0d179dac63927b8f3b47e78252638e63881e5b53267ce31a31e2c34dd1e3cd305fb2c7de6a2bef59378b0e8abd55589becfff4f90fa90ba0ee0455bbc
+  checksum: 658059626a8f1ede0c3e88003f44d764c0da8a852ffb7bd7a09e26298228b2dd2961e1adce4ab0763d3abf5b989456c6ca16cb52bc93b42950ebe73aa6b2f4cf
   languageName: node
   linkType: hard
 
-"@hotwired/turbo@npm:^7.2.2":
-  version: 7.2.2
-  resolution: "@hotwired/turbo@npm:7.2.2"
-  checksum: df6507d949633dc701b067b82cec894a5e51469831a187850c722dbf27b5782c57d2fe56c6f0bbdc54dea0e584e7fff5e7b71d2cbebff2799363eaee3b4d0ef0
+"@hotwired/turbo@npm:^7.2.4":
+  version: 7.2.4
+  resolution: "@hotwired/turbo@npm:7.2.4"
+  checksum: 83cbcda22cf2fa251a30aa898a57ea6dd9a2b0de71f4d3e364baa300a01a8d52631ae13b44533b516965a557d663788325a930fbc3edab3f85616126b7834c4c
   languageName: node
   linkType: hard
 
@@ -189,7 +189,7 @@ __metadata:
   resolution: "app@workspace:."
   dependencies:
     "@hotwired/stimulus": ^3.1.0
-    "@hotwired/turbo-rails": ^7.2.2
+    "@hotwired/turbo-rails": ^7.2.4
     autoprefixer: ^10.4.12
     esbuild: ^0.15.12
     postcss: ^8.4.18
