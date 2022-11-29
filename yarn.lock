@@ -36,10 +36,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hotwired/stimulus@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "@hotwired/stimulus@npm:3.1.1"
-  checksum: acb70e4b11495f125305171e67569f961b067059d71ecbeb0cacd794517bd2f3a9d9760c35e6ebcc098b8e083302a8511a8537bfec6bab7ed1fba950f653687e
+"@hotwired/stimulus@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@hotwired/stimulus@npm:3.2.0"
+  checksum: cb38b0b9f2f052ed26857de453483437e73fb966ae86b45ef38a68c9dc4e0dfbb29e164473a4dc4bed525a4a7d6b7cbefdedaad9703d51d503c23d4e834e83f3
   languageName: node
   linkType: hard
 
@@ -188,7 +188,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app@workspace:."
   dependencies:
-    "@hotwired/stimulus": ^3.1.1
+    "@hotwired/stimulus": ^3.2.0
     "@hotwired/turbo-rails": ^7.2.4
     autoprefixer: ^10.4.13
     esbuild: ^0.15.16
