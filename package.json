@@ -4,7 +4,7 @@
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.2.4",
     "autoprefixer": "^10.4.13",
-    "esbuild": "^0.16.17",
+    "esbuild": "^0.17.0",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
     "postcss-nesting": "^10.2.0"
