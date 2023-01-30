@@ -7,7 +7,7 @@
     "esbuild": "^0.17.5",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
-    "postcss-nesting": "^11.0.0"
+    "postcss-nesting": "^11.0.1"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",

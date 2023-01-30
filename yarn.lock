@@ -334,7 +334,7 @@ __metadata:
     esbuild: ^0.17.5
     postcss: ^8.4.21
     postcss-cli: ^10.1.0
-    postcss-nesting: ^11.0.0
+    postcss-nesting: ^11.0.1
   languageName: unknown
   linkType: soft
 
@@ -1375,15 +1375,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-nesting@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "postcss-nesting@npm:11.0.0"
+"postcss-nesting@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "postcss-nesting@npm:11.0.1"
   dependencies:
     "@csstools/selector-specificity": ^2.0.0
     postcss-selector-parser: ^6.0.10
   peerDependencies:
     postcss: ^8.4
-  checksum: 208ceb16c68b979cb102db503641bb898fc72287d227c5afa8a9e9a51fccb55a3973698748dea25228db9a0f30fb08fb0c274360836007ade2c19935f7895ff7
+  checksum: d4c5f2ccf5efb7b0fc61ee53d93793a296475f13615214cd9d4474af285b974e09b980684cf357250477f411b8f1f34489538e1c0c91ff6b3f7e83d23871ce4b
   languageName: node
   linkType: hard
 
