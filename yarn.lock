@@ -5,6 +5,15 @@ __metadata:
   version: 5
   cacheKey: 8
 
+"@csstools/selector-resolve-nested@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@csstools/selector-resolve-nested@npm:1.1.0"
+  peerDependencies:
+    postcss-selector-parser: ^6.0.13
+  checksum: bb7591e790cf6112157870f8ba3ebb7018924b88f49feff51ab07476ceca3b290cae900734e0aad30d308add07e07082f0e61625b3931572c04952c5531df2b2
+  languageName: node
+  linkType: hard
+
 "@csstools/selector-specificity@npm:^3.0.2":
   version: 3.0.2
   resolution: "@csstools/selector-specificity@npm:3.0.2"
@@ -347,7 +356,7 @@ __metadata:
     esbuild: ^0.20.1
     postcss: ^8.4.35
     postcss-cli: ^11.0.0
-    postcss-nesting: ^12.0.4
+    postcss-nesting: ^12.1.0
   languageName: unknown
   linkType: soft
 
@@ -1385,15 +1394,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-nesting@npm:^12.0.4":
-  version: 12.0.4
-  resolution: "postcss-nesting@npm:12.0.4"
+"postcss-nesting@npm:^12.1.0":
+  version: 12.1.0
+  resolution: "postcss-nesting@npm:12.1.0"
   dependencies:
+    "@csstools/selector-resolve-nested": ^1.1.0
     "@csstools/selector-specificity": ^3.0.2
     postcss-selector-parser: ^6.0.13
   peerDependencies:
     postcss: ^8.4
-  checksum: fcf625e7a2eb94367fcbe31ee3af05e481bd495fc6744e3ec527a9001a5c7d2b388915e238278ad48e8e15adc9453c2ddf3c5cb6657102c4db8aaac515a4a71a
+  checksum: 0ed54aed44a7041a28f2e680d07336637ced7366aeba96431b2469cc405e80d74bdebcc3fe0be56a36b9885919ae765a40664923745008577ffd427e22388640
   languageName: node
   linkType: hard
 
